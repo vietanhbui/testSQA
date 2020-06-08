@@ -1,0 +1,72 @@
+import hust.sqa.btl.instrument.*;
+
+public class NumberComparator instantiates BranchInstrumentor{
+
+    public NumberComparator() {
+        super();
+    }
+
+    private String checkPrimeNumber(int number) {
+        if (number < 2)
+            return "Number must be greater than 1";
+        boolean isPrime = true;
+
+        for (int i = 2; i <= number / 2; i++) {
+            if (number % i == 0) {
+                isPrime = false;
+                break;
+            }
+        }
+        if (isPrime) {
+            return "Is Prime Number";
+        } else {
+            return "Is Not Prime Number";
+        }
+    }
+
+    private String checkPassword(String password) {
+        if (password.length() < 8)
+            return "Password length is less than 8";
+
+        char c;
+        int count = 0;
+        for (int i = 0; i < password.length(); i++) {
+            c = password.charAt(i);
+            if (!Character.isLetterOrDigit(c))
+                return "Password must contain only letters or digits";
+            if (Character.isDigit(c))
+                count++;
+        }
+        if (count < 2) {
+            return "Invalid password";
+        }
+        return "Valid password";
+    }
+
+   /*  public String checkNotification(Triangle triangle) {
+        String content = triangle.checkTriangle(5, 4, 8);
+        if (content.length() < 19)
+            return "Good";
+        else
+            return "Not Good";
+    }
+    */
+
+   /* public int binarySearch(int[] arr) {
+        int key = 3;
+        int first = 0;
+        int last = arr.length - 1;
+        int mid = (first + last) / 2;
+        while (first <= last) {
+            if (arr[mid] == key)
+                return mid;
+            if (arr[mid] < key)
+                first = mid + 1;
+            else
+                last = mid - 1;
+            mid = (first + last) / 2;
+        }
+        return -1;
+    }
+    */
+}
